@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectContacts, selectVisibleContacts } from 'redux/selectors';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { Button } from 'components/Button/Button';
+import { Loader } from 'components/Loader/Loader';
 
 export const Contactlist = () => {
   const filteredContacts = useSelector(selectVisibleContacts);
@@ -10,6 +11,8 @@ export const Contactlist = () => {
 
   return (
     <div className={css.wrap}>
+      {isLoading && <Loader />}
+      {error && <p>Something went wrong, {error.message}</p>}
       <ul className={css.contactList}>
         {filteredContacts &&
           filteredContacts.map(({ id, name, phone }) => (
@@ -21,7 +24,7 @@ export const Contactlist = () => {
             ></ContactItem>
           ))}
       </ul>
-      <Button></Button>
+      <Button />
     </div>
   );
 };
