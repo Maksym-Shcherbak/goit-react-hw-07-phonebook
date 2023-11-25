@@ -59,6 +59,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
   gap: 15px;
   color: #010101;
   background: linear-gradient(45deg, #49a09d, #5f2c82);
