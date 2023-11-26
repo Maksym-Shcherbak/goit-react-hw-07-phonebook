@@ -5,8 +5,7 @@ export const selectFilter = state => state.filter;
 export const selectModal = state => state.modal.showModal;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
-  (contacts, filter) => {
-    console.log(filter);
+  ({ contacts }, filter) => {
     if (filter.enteredName) {
       return contacts.filter(contact =>
         contact.name.toLowerCase().includes(filter.enteredName.toLowerCase())
